@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20231011 22:06:19.100" rpa="false" schemaversion="4">
+<suite id="s1" name="Test Prime" source="C:\Users\Acer Aspire 7\Desktop\Exam_Lab_Test\test_prime.robot">
+<test id="s1-t1" name="Test Is Prime" line="5">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session</arg>
+<arg>http://localhost:5000</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231011 22:06:19.223" level="INFO">Creating Session using : alias=session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231011 22:06:19.223" endtime="20231011 22:06:19.223"/>
+</kw>
+<kw name="Test For Number">
+<arg>17</arg>
+<arg>True</arg>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>session</arg>
+<arg>/is_prime/${number}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231011 22:06:21.267" level="INFO">GET Request : url=http://localhost:5000/is_prime/17 
+ path_url=/is_prime/17 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231011 22:06:21.268" level="INFO">GET Response : url=http://localhost:5000/is_prime/17 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/2.3.6 Python/3.11.4', 'Date': 'Wed, 11 Oct 2023 15:06:21 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '4', 'Connection': 'close'} 
+ body=True 
+ </msg>
+<msg timestamp="20231011 22:06:21.268" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231011 22:06:19.224" endtime="20231011 22:06:21.268"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.text}</arg>
+<arg>${expected_result}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231011 22:06:21.268" endtime="20231011 22:06:21.269"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test for number ${number} returned ${response.text}, expected ${expected_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231011 22:06:21.270" level="INFO">Test for number 17 returned True, expected True</msg>
+<status status="PASS" starttime="20231011 22:06:21.269" endtime="20231011 22:06:21.270"/>
+</kw>
+<status status="PASS" starttime="20231011 22:06:19.223" endtime="20231011 22:06:21.270"/>
+</kw>
+<kw name="Test For Number">
+<arg>36</arg>
+<arg>False</arg>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>session</arg>
+<arg>/is_prime/${number}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231011 22:06:23.314" level="INFO">GET Request : url=http://localhost:5000/is_prime/36 
+ path_url=/is_prime/36 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231011 22:06:23.314" level="INFO">GET Response : url=http://localhost:5000/is_prime/36 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/2.3.6 Python/3.11.4', 'Date': 'Wed, 11 Oct 2023 15:06:23 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '5', 'Connection': 'close'} 
+ body=False 
+ </msg>
+<msg timestamp="20231011 22:06:23.314" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231011 22:06:21.271" endtime="20231011 22:06:23.314"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.text}</arg>
+<arg>${expected_result}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231011 22:06:23.314" endtime="20231011 22:06:23.315"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test for number ${number} returned ${response.text}, expected ${expected_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231011 22:06:23.315" level="INFO">Test for number 36 returned False, expected False</msg>
+<status status="PASS" starttime="20231011 22:06:23.315" endtime="20231011 22:06:23.315"/>
+</kw>
+<status status="PASS" starttime="20231011 22:06:21.271" endtime="20231011 22:06:23.315"/>
+</kw>
+<kw name="Test For Number">
+<arg>13219</arg>
+<arg>True</arg>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>session</arg>
+<arg>/is_prime/${number}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231011 22:06:25.364" level="INFO">GET Request : url=http://localhost:5000/is_prime/13219 
+ path_url=/is_prime/13219 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231011 22:06:25.364" level="INFO">GET Response : url=http://localhost:5000/is_prime/13219 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/2.3.6 Python/3.11.4', 'Date': 'Wed, 11 Oct 2023 15:06:25 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '4', 'Connection': 'close'} 
+ body=True 
+ </msg>
+<msg timestamp="20231011 22:06:25.364" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231011 22:06:23.316" endtime="20231011 22:06:25.364"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.text}</arg>
+<arg>${expected_result}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231011 22:06:25.364" endtime="20231011 22:06:25.365"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test for number ${number} returned ${response.text}, expected ${expected_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231011 22:06:25.365" level="INFO">Test for number 13219 returned True, expected True</msg>
+<status status="PASS" starttime="20231011 22:06:25.365" endtime="20231011 22:06:25.365"/>
+</kw>
+<status status="PASS" starttime="20231011 22:06:23.316" endtime="20231011 22:06:25.365"/>
+</kw>
+<kw name="Test For Number">
+<arg>12</arg>
+<arg>False</arg>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>session</arg>
+<arg>/is_prime/${number}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231011 22:06:27.408" level="INFO">GET Request : url=http://localhost:5000/is_prime/12 
+ path_url=/is_prime/12 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231011 22:06:27.408" level="INFO">GET Response : url=http://localhost:5000/is_prime/12 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/2.3.6 Python/3.11.4', 'Date': 'Wed, 11 Oct 2023 15:06:27 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '5', 'Connection': 'close'} 
+ body=False 
+ </msg>
+<msg timestamp="20231011 22:06:27.408" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231011 22:06:25.366" endtime="20231011 22:06:27.408"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.text}</arg>
+<arg>${expected_result}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20231011 22:06:27.408" endtime="20231011 22:06:27.409"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test for number ${number} returned ${response.text}, expected ${expected_result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231011 22:06:27.409" level="INFO">Test for number 12 returned False, expected False</msg>
+<status status="PASS" starttime="20231011 22:06:27.409" endtime="20231011 22:06:27.409"/>
+</kw>
+<status status="PASS" starttime="20231011 22:06:25.366" endtime="20231011 22:06:27.409"/>
+</kw>
+<status status="PASS" starttime="20231011 22:06:19.222" endtime="20231011 22:06:27.410"/>
+</test>
+<status status="PASS" starttime="20231011 22:06:19.102" endtime="20231011 22:06:27.412"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test Prime">Test Prime</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
